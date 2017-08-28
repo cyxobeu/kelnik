@@ -1,0 +1,258 @@
+body {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.hidden { display: none; }
+
+body {
+  width: 100%;
+  background-image: url('../img/bg.png');
+  font-size: 14px;
+  color: #000;
+  font-family: $tahoma;
+}
+
+.header {
+  &__inner {
+    padding: 45px 0 40px;
+    text-align: center;
+  }
+
+  &__logo {
+    margin-bottom: 5px;
+  }
+
+  &__sort{
+    p {
+      margin: 0;
+    }
+
+    &-link {
+      position: relative;
+      text-decoration: none;
+      color: $main-color;
+      border-bottom: 1px dashed $main-color;
+      margin: 0 5px;
+
+      &.active {
+        margin-right: 20px;
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: -15px;
+          display: block;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 5px 5px 0 5px;
+          border-color: #000 transparent transparent transparent;
+        }
+      }
+
+      &.up::after {
+        border-width: 0 5px 5px 5px;
+        border-color: transparent transparent #000 transparent;
+      }
+    }
+  }
+}
+
+.page-content {
+  &__inner {
+    margin: 0 auto;
+    max-width: 960px;
+    text-align: center;
+  }
+}
+
+.product-card {
+  display: inline-block;
+  background-color: #fff;
+  max-width: 220px;
+  margin: 0 10px 40px;
+  border-radius: 7px;
+  padding: 5px;
+  border: 3px solid #fff;
+  text-align: left;
+  font-size: 13px;
+  padding-bottom: 20px;
+
+  &:hover {
+    border-color: $main-color;
+    cursor: pointer;
+
+    .product-card__progress {
+      display: none;
+    }
+
+    .product-card__button {
+      display: block;
+    }
+  }
+
+  &__photo {
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    text-transform: uppercase;
+    padding-top: 10px;
+    font-family: $prot;
+    font-size: 24px
+  }
+
+  &__status {
+    margin: 0;
+    padding-bottom: 20px;
+  }
+
+  &__info {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 20px;
+    min-height: 100px;
+  }
+
+  &__text {
+    padding-bottom: 3px;
+  }
+
+  &__progress,
+  &__button {
+    color: $second-color;
+    font-family: $prot;
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+
+  &__button  {
+    display: none;
+    color: $main-color;
+  }
+}
+
+.page-up {
+  margin: 0 0 40px;
+
+  &__button {
+    font-family: $prot;
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: $main-color;
+    font-size: 36px;
+  }
+}
+
+.footer {
+  background-image: url('../img/footer_bg.png');
+
+  &__inner {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 40px 0;
+
+    @media (max-width: 640px) {
+      padding: 40px 10px;
+    }
+  }
+}
+
+.subscribe-form {
+  margin: 0 auto;
+  max-width: 710px;
+  color: #fff;
+  font-family: $prot;
+
+  @media (max-width: 745px) {
+    max-width: 300px;
+  }
+
+  &__email {
+    text-transform: uppercase;
+
+    &-input {
+      width: 210px;
+      font-family: $prot;
+      text-transform: uppercase;
+      font-size: 18px;
+      padding: 10px;
+      border-radius: 7px;
+      border: 1px solid #fff;
+      outline: none;
+      margin-bottom: 25px;
+      margin-left: 20px;
+
+      &.error {
+        border-color: $main-color;
+        color: $main-color;
+      }
+    }
+  }
+
+  &__inner {
+    &:nth-child(2) {
+      padding-left: 80px;
+    }
+  }
+
+  &__checkbox {
+    vertical-align: middle;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    cursor: pointer;
+    position: relative;
+    padding-left: 35px;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -6px;
+      left: 0;
+
+      @extend .icon-checkbox;
+
+    }
+
+    &-input {
+      display: none;
+
+      &:checked + .subscribe-form__checkbox::before {
+        @extend .icon-checkbox_checked;
+      }
+    }
+  }
+
+  &__button {
+    display: block;
+    font-family: $prot;
+    text-transform: uppercase;
+    text-decoration: underline;
+    margin-top: 25px;
+    padding: 0;
+    color: $main-color;
+    border: none;
+    background-color: transparent;
+    font-size: 28px;
+
+    @media (max-width: 640px) {
+      font-size: 22px;
+      margin-top: 15px;
+    }
+  }
+}

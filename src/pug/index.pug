@@ -1,0 +1,56 @@
+doctype html
+html(lang='ru')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    meta(name='format-detection', content='telephone=no')
+    meta(name='HandheldFriendly', content='True')
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    meta(name='MobileOptimized', content='320')
+    link(rel='stylesheet', href='css/style.css')
+    title document
+  body
+    header.header
+      .header__inner
+        img.header__logo(src='img/logo.png', alt='Мои заказы')
+        .header__sort
+          p
+            | Сортировать:
+            a.header__sort-link(href='#') по дате
+            | |
+            a.header__sort-link(href='#') по готовности
+
+    main.page-content
+      section.page-content__inner
+        - for (var i = 0; i < 6; i++)
+          article.product-card
+            .product-mark
+            .product-card__photo
+              img(src='img/prod_photo.png', alt='')
+            h2.product-card__title название заказа
+            p.product-card__status Статус: отправлен
+            ul.product-card__info
+              li.product-card__text Загружен: 11.04.13
+              li.product-card__text Фотополимер покрашенный
+              li.product-card__text Количество экземпляров: 1
+              li.product-card__text Количество экземпляров: 1
+              li.product-card__text Количество экземпляров: 1
+            span.product-card__progress выполнен на 60%
+            a.product-card__button(href='#') + добавить в магазин
+
+        .page-up
+          a.page-up__button(href='#') наверх
+
+    footer.footer
+      .footer__inner
+        form.subscribe-form(action='/', method='GET', name='subscribe')
+          .subscribe-form__inner
+            label.subscribe-form__email(for='email') ваш email:
+            input.subscribe-form__email-input#email(type='email', name='email', required)
+          .subscribe-form__inner
+            input#check.subscribe-form__checkbox-input(type='checkbox')
+            label.subscribe-form__checkbox(for='check') подписаться на новости
+            button.subscribe-form__button зарегистрироваться
+
+    script(src='js/script.min.js')
