@@ -17,7 +17,7 @@ document.querySelector('.page-up__button').addEventListener('click', function(e)
 
 // Валидация формы
 document.getElementById('email').addEventListener('keydown', function () {
-  if (this.value.match(/^[a-zA-ZА-Яа-яЁё\s\-]+$/)) {
+  if (this.value.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
     this.classList.add('error');
   } else {
     this.classList.remove('error');
